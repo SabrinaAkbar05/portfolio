@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sabrina Akbar | Portfolio</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700&family=Fraunces:ital,wght@1,500;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+--pastel-base: #fffaf9;
+--pastel-accent: #f8e5e1;
+--text-main: #2d2d2d;
+--rose-deep: #d4a39a;
+}
+body {
+font-family: 'Plus Jakarta Sans', sans-serif;
+background-color: var(--pastel-base);
+color: var(--text-main);
+scroll-behavior: smooth;
+}
+.serif { font-family: 'Fraunces', serif; }
+.nav-link:hover { color: var(--rose-deep); }
+.project-card {
+background-color: white;
+border: 1px solid var(--pastel-accent);
+transition: all 0.4s ease;
+height: 100%;
+}
+.project-card:hover {
+transform: translateY(-10px);
+box-shadow: 0 20px 40px rgba(212, 163, 154, 0.15);
+border-color: var(--rose-deep);
+}
+/* Modal Styles */
+.modal {
+display: none;
+position: fixed;
+z-index: 100;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0,0,0,0.5);
+backdrop-filter: blur(5px);
+}
+.modal-content {
+background-color: white;
+margin: 5% auto;
+padding: 20px;
+width: 90%;
+max-width: 800px;
+border-radius: 2rem;
+position: relative;
+}
+</style>
+</head>
+<body class="selection:bg-[#f8e5e1]">
+
+<nav class="max-w-6xl mx-auto px-8 py-10 flex justify-between items-center">
+<div class="text-xl font-bold tracking-tighter uppercase">Sabrina Akbar</div>
+<div class="flex items-center gap-10 text-xs font-bold uppercase tracking-widest">
+<a href="#work" class="nav-link">Work</a>
+<a href="mailto:sabrinaakbar921@gmail.com" class="nav-link">Contact</a>
+<a href="#" id="openResume" class="bg-[#2d2d2d] text-white px-6 py-3 rounded-full hover:bg-[#d4a39a] transition duration-300">
+Resume
+</a>
+</div>
+</nav>
+
+<main class="max-w-6xl mx-auto px-8">
+
+<section class="py-24 border-b border-[#f8e5e1]">
+<p class="text-[20px] font-black uppercase tracking-[0.4em] text-[#d4a39a] mb-6">Cybersecurity & Data Science Student</p>
+<h1 class="heading-font text-5xl md:text-7xl font-semibold leading-[0.95] mb-12">
+Securing <span class="font-light italic text-stone-400">digital assets</span> while <br><span>uncovering</span> data insights.
+</h1>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<p class="text-xl text-stone-500 leading-relaxed font-light">
+I am <span class="text-indigo-900 font-medium">Sabrina Akbar</span>, a Computer Science undergraduate at <span class="italic">Jinnah University for Women</span>.
+I specialize in <span class="text-rose-400">Cybersecurity</span> and <span class="text-rose-400">Data Analysis</span>.
+</p>
+<div class="flex gap-4 items-end">
+<a href="https://github.com/SabrinaAkbar05" target="_blank" class="text-sm font-bold border-b-2 border-[#2d2d2d] pb-1 hover:text-[#d4a39a] hover:border-[#d4a39a]">GitHub</a>
+<a href="https://linkedin.com/in/sabrinaakbar2005" target="_blank" class="text-sm font-bold border-b-2 border-[#2d2d2d] pb-1 hover:text-[#d4a39a] hover:border-[#d4a39a]">LinkedIn</a>
+</div>
+</div>
+</section>
+
+<section id="work" class="py-24">
+<h2 class="text-xs font-bold uppercase tracking-[0.4em] text-stone-400 mb-16">Selected Projects</h2>
+<div id="projectGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div>
+</section>
+
+<section class="py-20 bg-[#f8e5e1] rounded-[3rem] px-12 mb-32">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+<div>
+<h4 class="text-xs font-black text-[#d4a39a] uppercase mb-2">Technologies</h4>
+<p class="font-bold italic serif">Python / Java / MySQL / HTML,CSS</p>
+</div>
+<div>
+<h4 class="text-xs font-black text-[#d4a39a] uppercase mb-2">Specialization</h4>
+<p class="font-bold italic serif">Cyber Analysis / NLP / Assembly</p>
+</div>
+<div>
+<h4 class="text-xs font-black text-[#d4a39a] uppercase mb-2">Creative</h4>
+<p class="font-bold italic serif">Photoshop / Figma / Canva</p>
+</div>
+<div>
+<h4 class="text-xs font-black text-[#d4a39a] uppercase mb-2">Contact</h4>
+<p class="font-bold italic serif">Karachi, PK / (+92) 332-1206539</p>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="py-20 border-t border-[#f8e5e1] text-center">
+<p class="text-3xl serif italic mb-8">Let's build something secure.</p>
+<div class="flex justify-center gap-12 text-sm font-bold uppercase tracking-widest mb-12">
+<a href="mailto:sabrinaakbar921@gmail.com" class="hover:text-[#d4a39a]">Email</a>
+<a href="https://github.com/SabrinaAkbar05" target="_blank" class="hover:text-[#d4a39a]">GitHub</a>
+</div>
+<p class="text-[20px] text-stone-300 tracking-[0.5em]">©️ 2026 SABRINA AKBAR</p>
+</footer>
+
+<div id="resumeModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn text-3xl cursor-pointer absolute right-8 top-8">&times;</span>
+        <h2 class="serif italic text-4xl mb-6">Resume</h2>
+        <iframe src="https://drive.google.com/file/d/1-3UcF_bYP8C5dhRG9xpPsaVmc_PrTMxa/preview" width="100%" height="500px"></iframe>
+        <div class="mt-6 text-center">
+            <a href="https://drive.google.com/file/d/1-3UcF_bYP8C5dhRG9xpPsaVmc_PrTMxa/view?usp=drivesdk" target="_blank" class="bg-[#2d2d2d] text-white px-8 py-3 rounded-full">Download Full PDF</a>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
