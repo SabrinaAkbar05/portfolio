@@ -1,174 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sabrina Akbar | Portfolio</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700&family=Fraunces:ital,wght@1,500;1,700&display=swap" rel="stylesheet">
-<style>
-:root {
-    --pastel-base: #fffaf9;
-    --pastel-accent: #f8e5e1;
-    --text-main: #2d2d2d;
-    --rose-deep: #d4a39a;
-}
-body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    background-color: var(--pastel-base);
-    color: var(--text-main);
-    scroll-behavior: smooth;
-}
-.serif { font-family: 'Fraunces', serif; }
-.nav-link:hover { color: var(--rose-deep); }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabrina Akbar | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700&family=Fraunces:ital,wght@1,500;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pastel-base: #fffaf9;
+            --pastel-accent: #f8e5e1;
+            --text-main: #2d2d2d;
+            --rose-deep: #d4a39a;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--pastel-base);
+            color: var(--text-main);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        .serif { font-family: 'Fraunces', serif; }
+        .nav-link:hover { color: var(--rose-deep); }
+        
+        .project-card {
+            background-color: white;
+            border: 1px solid var(--pastel-accent);
+            transition: all 0.4s ease;
+            height: 100%;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(212, 163, 154, 0.15);
+            border-color: var(--rose-deep);
+        }
 
-.project-card {
-    background-color: white;
-    border: 1px solid var(--pastel-accent);
-    transition: all 0.4s ease;
-    height: 100%;
-}
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(212, 163, 154, 0.15);
-    border-color: var(--rose-deep);
-}
-
-/* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 100;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    backdrop-filter: blur(5px);
-}
-.modal-content {
-    background-color: white;
-    margin: 5% auto;
-    padding: 20px;
-    width: 90%;
-    max-width: 800px;
-    border-radius: 2rem;
-    position: relative;
-}
-
-/* Mobile Menu */
-.mobile-menu {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100vh;
-    background-color: var(--pastel-base);
-    z-index: 1000;
-    padding: 100px 30px 40px;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    font-size: 1.25rem;
-}
-</style>
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+            padding: 10px;
+        }
+        .modal-content {
+            background-color: white;
+            margin: 2% auto;
+            padding: 20px;
+            width: 95%;
+            max-width: 800px;
+            border-radius: 1.5rem;
+            position: relative;
+        }
+        
+        @media (min-width: 768px) {
+            .modal-content {
+                margin: 5% auto;
+                padding: 40px;
+                border-radius: 2rem;
+            }
+        }
+    </style>
 </head>
 <body class="selection:bg-[#f8e5e1]">
 
-<nav class="max-w-6xl mx-auto px-6 md:px-8 py-8 flex justify-between items-center">
-    <div class="text-xl font-bold tracking-tighter uppercase">Sabrina Akbar</div>
-    
-    <!-- Desktop Navigation -->
-    <div class="hidden md:flex items-center gap-10 text-xs font-bold uppercase tracking-widest">
-        <a href="#work" class="nav-link">Work</a>
-        <a href="mailto:sabrinaakbar921@gmail.com" class="nav-link">Contact</a>
-        <a href="#" id="openResume" class="bg-[#2d2d2d] text-white px-6 py-3 rounded-full hover:bg-[#d4a39a] transition duration-300">
-            Resume
-        </a>
-    </div>
+    <nav class="max-w-6xl mx-auto px-6 py-8 md:py-10 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="text-xl font-bold tracking-tighter uppercase">Sabrina Akbar</div>
+        <div class="flex items-center gap-6 md:gap-10 text-[10px] md:text-xs font-bold uppercase tracking-widest">
+            <a href="#work" class="nav-link">Work</a>
+            <a href="mailto:sabrinaakbar921@gmail.com" class="nav-link">Contact</a>
+            <a href="#" id="openResume" class="bg-[#2d2d2d] text-white px-5 py-2.5 md:px-6 md:py-3 rounded-full hover:bg-[#d4a39a] transition duration-300">
+                Resume
+            </a>
+        </div>
+    </nav>
 
-    <!-- Hamburger Icon -->
-    <button id="hamburger" class="md:hidden text-3xl focus:outline-none">
-        ☰
-    </button>
-</nav>
-
-<!-- Mobile Menu -->
-<div id="mobileMenu" class="mobile-menu">
-    <a href="#work" class="mobile-link">Work</a>
-    <a href="mailto:sabrinaakbar921@gmail.com" class="mobile-link">Contact</a>
-    <a href="#" id="openResumeMobile" class="bg-[#2d2d2d] text-white px-8 py-4 rounded-full">Resume</a>
-    <button id="closeMenu" class="mt-10 text-5xl">✕</button>
-</div>
-
-<main class="max-w-6xl mx-auto px-6 md:px-8">
-    <section class="py-16 md:py-24 border-b border-[#f8e5e1]">
-        <p class="text-[18px] md:text-[20px] font-black uppercase tracking-[0.4em] text-[#d4a39a] mb-6">Cybersecurity & Data Science Student</p>
-        
-        <h1 class="text-5xl md:text-7xl font-semibold leading-[1.05] mb-10 md:mb-12">
-            Securing <span class="font-light italic text-stone-400">digital assets</span> while <br>
-            <span>uncovering</span> data insights.
-        </h1>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
-            <p class="text-lg md:text-xl text-stone-500 leading-relaxed font-light">
-                I am <span class="text-indigo-900 font-medium">Sabrina Akbar</span>, a Computer Science undergraduate at 
-                <span class="italic">Jinnah University for Women</span>.<br><br>
-                I specialize in <span class="text-rose-400">Cybersecurity</span> and <span class="text-rose-400">Data Analysis</span>.
+    <main class="max-w-6xl mx-auto px-6 md:px-8">
+        <section class="py-16 md:py-24 border-b border-[#f8e5e1]">
+            <p class="text-sm md:text-[20px] font-black uppercase tracking-[0.3em] md:tracking-[0.4em] text-[#d4a39a] mb-6">
+                Cybersecurity & Data Science Student
             </p>
-            <div class="flex gap-6 items-end">
-                <a href="https://github.com/SabrinaAkbar05" target="_blank" class="text-sm font-bold border-b-2 border-[#2d2d2d] pb-1 hover:text-[#d4a39a] hover:border-[#d4a39a]">GitHub</a>
-                <a href="https://linkedin.com/in/sabrinaakbar2005" target="_blank" class="text-sm font-bold border-b-2 border-[#2d2d2d] pb-1 hover:text-[#d4a39a] hover:border-[#d4a39a]">LinkedIn</a>
+            <h1 class="heading-font text-4xl md:text-7xl font-semibold leading-[1.1] md:leading-[0.95] mb-12">
+                Securing <span class="font-light italic text-stone-400">digital assets</span> while <br class="hidden md:block">
+                <span>uncovering</span> data insights.
+            </h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                <p class="text-lg md:text-xl text-stone-500 leading-relaxed font-light">
+                    I am <span class="text-indigo-900 font-medium">Sabrina Akbar</span>, a Computer Science undergraduate at <span class="italic">Jinnah University for Women</span>.
+                    I specialize in <span class="text-rose-400">Cybersecurity</span> and <span class="text-rose-400">Data Analysis</span>.
+                </p>
+                <div class="flex gap-6 items-end">
+                    <a href="https://github.com/SabrinaAkbar05" target="_blank" class="text-sm font-bold border-b-2 border-[#2d2d2d] pb-1 hover:text-[#d4a39a] hover:border-[#d4a39a]">GitHub</a>
+                    <a href="https://linkedin.com/in/sabrinaakbar2005" target="_blank" class="text-sm font-bold border-b-2 border-[#2d2d2d] pb-1 hover:text-[#d4a39a] hover:border-[#d4a39a]">LinkedIn</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="work" class="py-16 md:py-24">
+            <h2 class="text-xs font-bold uppercase tracking-[0.4em] text-stone-400 mb-12 md:mb-16">Selected Projects</h2>
+            <div id="projectGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                </div>
+        </section>
+
+        <section class="py-12 md:py-20 bg-[#f8e5e1] rounded-[2rem] md:rounded-[3rem] px-8 md:px-12 mb-24 md:mb-32">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-center">
+                <div>
+                    <h4 class="text-xs font-black text-[#d4a39a] uppercase mb-2">Technologies</h4>
+                    <p class="font-bold italic serif">Python / Java / MySQL / HTML,CSS</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-black text-[#d4a39a] uppercase mb-2">Specialization</h4>
+                    <p class="font-bold italic serif">Cyber Analysis / NLP / Assembly</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-black text-[#d4a39a] uppercase mb-2">Creative</h4>
+                    <p class="font-bold italic serif">Photoshop / Figma / Canva</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-black text-[#d4a39a] uppercase mb-2">Contact</h4>
+                    <p class="font-bold italic serif">Karachi, PK / (+92) 332-1206539</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-16 border-t border-[#f8e5e1] text-center px-6">
+        <p class="text-2xl md:text-3xl serif italic mb-8">Let's build something secure.</p>
+        <div class="flex justify-center gap-8 md:gap-12 text-[10px] md:text-sm font-bold uppercase tracking-widest mb-12">
+            <a href="mailto:sabrinaakbar921@gmail.com" class="hover:text-[#d4a39a]">Email</a>
+            <a href="https://github.com/SabrinaAkbar05" target="_blank" class="hover:text-[#d4a39a]">GitHub</a>
+        </div>
+        <p class="text-sm md:text-[20px] text-stone-300 tracking-[0.3em] md:tracking-[0.5em]">©️ 2026 SABRINA AKBAR</p>
+    </footer>
+
+    <div id="resumeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn text-3xl cursor-pointer absolute right-6 top-4 md:right-8 md:top-8">&times;</span>
+            <h2 class="serif italic text-3xl md:text-4xl mb-6">Resume</h2>
+            <div class="rounded-xl overflow-hidden border border-stone-100">
+                <iframe src="https://drive.google.com/file/d/1-3UcF_bYP8C5dhRG9xpPsaVmc_PrTMxa/preview" width="100%" height="400px" class="md:h-[500px]"></iframe>
+            </div>
+            <div class="mt-6 text-center">
+                <a href="https://drive.google.com/file/d/1-3UcF_bYP8C5dhRG9xpPsaVmc_PrTMxa/view?usp=drivesdk" target="_blank" class="inline-block bg-[#2d2d2d] text-white px-8 py-3 rounded-full text-sm font-bold">Download Full PDF</a>
             </div>
         </div>
-    </section>
-
-    <section id="work" class="py-16 md:py-24">
-        <h2 class="text-xs font-bold uppercase tracking-[0.4em] text-stone-400 mb-12 md:mb-16">Selected Projects</h2>
-        <div id="projectGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"></div>
-    </section>
-
-    <section class="py-16 md:py-20 bg-[#f8e5e1] rounded-[2rem] md:rounded-[3rem] px-8 md:px-12 mb-20 md:mb-32">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-                <h4 class="text-xs font-black text-[#d4a39a] uppercase mb-2">Technologies</h4>
-                <p class="font-bold italic serif">Python / Java / MySQL / HTML,CSS</p>
-            </div>
-            <div>
-                <h4 class="text-xs font-black text-[#d4a39a] uppercase mb-2">Specialization</h4>
-                <p class="font-bold italic serif">Cyber Analysis / NLP / Assembly</p>
-            </div>
-            <div>
-                <h4 class="text-xs font-black text-[#d4a39a] uppercase mb-2">Creative</h4>
-                <p class="font-bold italic serif">Photoshop / Figma / Canva</p>
-            </div>
-            <div>
-                <h4 class="text-xs font-black text-[#d4a39a] uppercase mb-2">Contact</h4>
-                <p class="font-bold italic serif">Karachi, PK / (+92) 332-1206539</p>
-            </div>
-        </div>
-    </section>
-</main>
-
-<footer class="py-16 md:py-20 border-t border-[#f8e5e1] text-center px-6">
-    <p class="text-2xl md:text-3xl serif italic mb-8">Let's build something secure.</p>
-    <div class="flex justify-center gap-8 md:gap-12 text-sm font-bold uppercase tracking-widest mb-12">
-        <a href="mailto:sabrinaakbar921@gmail.com" class="hover:text-[#d4a39a]">Email</a>
-        <a href="https://github.com/SabrinaAkbar05" target="_blank" class="hover:text-[#d4a39a]">GitHub</a>
     </div>
-    <p class="text-[18px] md:text-[20px] text-stone-300 tracking-[0.5em]">©️ 2026 SABRINA AKBAR</p>
-</footer>
 
-<!-- Resume Modal -->
-<div id="resumeModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn text-4xl cursor-pointer absolute right-8 top-8">&times;</span>
-        <h2 class="serif italic text-4xl mb-6">Resume</h2>
-        <iframe src="https://drive.google.com/file/d/1-3UcF_bYP8C5dhRG9xpPsaVmc_PrTMxa/preview" width="100%" height="500px"></iframe>
-        <div class="mt-6 text-center">
-            <a href="https://drive.google.com/file/d/1-3UcF_bYP8C5dhRG9xpPsaVmc_PrTMxa/view?usp=drivesdk" target="_blank" 
-               class="bg-[#2d2d2d] text-white px-8 py-3 rounded-full">Download Full PDF</a>
-        </div>
-    </div>
-</div>
+    <script>
+        const myProjects = [
+            {
+                id: "01",
+                category: "AI & NLP",
+                title: "AI JobFit Chatbot",
+                desc: "An intelligent chatbot system that utilizes NLP to analyze resumes and suggest career path optimizations based on skill matching.",
+                tags: ["Python", "NLP", "AI"],
+                link: "https://github.com/SabrinaAkbar05/AI-JOBFIT-CHATBOT"
+            },
+            {
+                id: "02",
+                category: "SECURITY",
+                title: "Syntexhub Port Scanner",
+                desc: "A network security utility designed to scan and identify open ports, helping assess potential entry points for security audits.",
+                tags: ["Python", "Networking", "Cybersecurity"],
+                link: "https://github.com/SabrinaAkbar05/Syntexhub_Port_Scanner"
+            },
+            {
+                id: "03",
+                category: "DATA SCIENCE",
+                title: "Fake News Detector",
+                desc: "A Machine Learning project focused on text classification to distinguish between factual reporting and misinformation.",
+                tags: ["ML", "Python", "Data Science"],
+                link: "https://github.com/SabrinaAkbar05/CodeAlpha_UnemploymentInIndia"
+            },
+            {
+                id: "04",
+                category: "SECURITY",
+                title: "Password Manager",
+                desc: "A secure digital vault for storing and managing login credentials using encryption techniques to ensure data privacy.",
+                tags: ["Security", "Encryption", "Python"],
+                link: "https://github.com/SabrinaAkbar05/Syntexhub_PasswordManager"
+            }
+        ];
 
-<script src="script.js"></script>
+        const loadProjects = () => {
+            const grid = document.getElementById('projectGrid');
+            if (!grid) return;
+            myProjects.forEach(project => {
+                const cardHTML = `
+                    <div class="project-card p-8 md:p-10 rounded-[1.5rem] md:rounded-[2rem] flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold text-[#d4a39a] uppercase tracking-widest">
+                                ${project.id}. ${project.category}
+                            </span>
+                            <h3 class="text-2xl md:text-3xl serif italic mt-4 mb-4 md:mb-6">${project.title}</h3>
+                            <p class="text-sm text-stone-500 leading-relaxed mb-8">${project.desc}</p>
+                        </div>
+                        <div>
+                            <div class="text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-6">
+                                ${project.tags.join(' / ')}
+                            </div>
+                            <a href="${project.link}" target="_blank" class="text-sm font-bold border-b-2 border-[#2d2d2d] pb-1 hover:text-[#d4a39a] hover:border-[#d4a39a] transition-all">
+                                View Source Code →
+                            </a>
+                        </div>
+                    </div>
+                `;
+                grid.innerHTML += cardHTML;
+            });
+        };
+
+        const initModal = () => {
+            const modal = document.getElementById("resumeModal");
+            const openBtn = document.getElementById("openResume");
+            const closeBtn = document.querySelector(".close-btn");
+            
+            if (openBtn && modal) {
+                openBtn.onclick = (e) => {
+                    e.preventDefault();
+                    modal.style.display = "block";
+                    document.body.style.overflow = "hidden";
+                };
+            }
+            if (closeBtn) {
+                closeBtn.onclick = () => {
+                    modal.style.display = "none";
+                    document.body.style.overflow = "auto";
+                };
+            }
+            window.onclick = (event) => {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                    document.body.style.overflow = "auto";
+                }
+            };
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadProjects();
+            initModal();
+        });
+    </script>
 </body>
 </html>
